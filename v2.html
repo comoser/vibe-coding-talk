@@ -70,6 +70,39 @@
             position: relative;
         }
 
+        /* Bright neon shine effect for "Shines" text */
+        .bright-neon {
+            color: var(--neon-blue);
+            text-shadow: 
+                0 0 5px var(--neon-blue),
+                0 0 10px var(--neon-blue),
+                0 0 20px var(--neon-blue),
+                0 0 30px var(--neon-blue),
+                0 0 40px var(--neon-blue);
+            animation: shine-pulse 2s infinite;
+        }
+
+        @keyframes shine-pulse {
+            0%, 100% { 
+                opacity: 1;
+                text-shadow: 
+                    0 0 5px var(--neon-blue),
+                    0 0 10px var(--neon-blue),
+                    0 0 20px var(--neon-blue),
+                    0 0 30px var(--neon-blue),
+                    0 0 40px var(--neon-blue);
+            }
+            50% { 
+                opacity: 0.9;
+                text-shadow: 
+                    0 0 10px var(--neon-blue),
+                    0 0 20px var(--neon-blue),
+                    0 0 40px var(--neon-blue),
+                    0 0 60px var(--neon-blue),
+                    0 0 80px var(--neon-blue);
+            }
+        }
+
         @keyframes neon-flicker {
             0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
                 opacity: 1;
@@ -338,22 +371,28 @@
 
         .prompt-box {
             width: 80vw;
-            background: rgba(11, 11, 20, 0.3) !important;
-            border-radius: 4px;
-            padding: 10px 15px;
-            margin: 10px 0;
+            background: linear-gradient(145deg, rgba(11, 11, 20, 0.4), rgba(15, 15, 30, 0.3)) !important;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 15px 0;
             font-family: monospace;
             text-align: left;
             border-left: 3px solid var(--neon-green);
-            font-size: 0.65em;
-            box-shadow: 0 0 10px rgba(4, 217, 178, 0.2);
+            font-size: 0.7em;
+            box-shadow: 0 0 15px rgba(4, 217, 178, 0.3);
+            transition: all 0.3s ease;
+            border-top: 1px solid rgba(54, 226, 255, 0.1);
+            border-right: 1px solid rgba(54, 226, 255, 0.05);
         }
 
         .prompt-title {
             color: var(--neon-green);
-            font-size: 0.9em;
-            margin-bottom: 5px;
+            font-size: 1em;
+            margin-bottom: 10px;
             font-weight: bold;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-shadow: 0 0 5px var(--neon-green);
         }
 
         .image-container {
@@ -576,11 +615,11 @@
             <div class="content-wrapper">
                 <h2>Today's Journey</h2>
                 <div class="two-columns">
-                    <div class="column">
+                    <div class="column fragment">
                         <h3>🛍️ E-commerce Store</h3>
                         <p>Building a poster shop for programmers using vibe coding</p>
                     </div>
-                    <div class="column">
+                    <div class="column fragment">
                         <h3>🎬 This Presentation</h3>
                         <p>Creating compelling presentations with AI assistance</p>
                     </div>
@@ -594,12 +633,12 @@
         </section>
 
         <!-- Case Study 1: E-commerce Store Slide 4 -->
-        <section data-background-color="#08080f">
+        <section data-background-color="#08080f" data-auto-animate>
             <div class="cyberpunk-grid"></div>
             <div class="content-wrapper">
-                <h2>Case Study 1:</h2>
+                <h2>The Programmer Poster Shop</h2>
                 <h3>Programmer Poster Shop</h3>
-                <p>From <span class="accent">concept</span> to functioning e-commerce store</p>
+                <p>Building a <span class="accent">side hustle</span> with minimal time investment</p>
             </div>
             <aside class="notes">
                 Luis
@@ -614,35 +653,31 @@
         </section>
 
         <!-- Store Showcase Slide 5 -->
-        <section>
+        <section data-auto-animate>
             <div class="cyberpunk-grid"></div>
             <div class="content-wrapper">
-                <h2>The Programmer Poster Shop</h2>
-                <div class="two-columns">
-                    <div class="column">
-                        <div class="image-container">
-                            <img src="images/shop-1.png" alt="Store Homepage" class="screenshot">
-                        </div>
-                        <p><small><span class="accent">Homepage</span> Design</small></p>
-                    </div>
-                    <div class="column">
-                        <div class="image-container">
-                            <img src="images/shop-2.png" alt="Product Page" class="screenshot">
-                        </div>
-                        <p><small><span class="accent">Poster</span> Builder Page</small></p>
-                    </div>
+                <h2 style="position: absolute; top: 20px; left: 20px; font-size: 1.2em; margin: 0;">The Programmer Poster Shop</h2>
+                
+                <div class="r-stack" style="margin-top: 50px;">
+                    <img src="images/shop-1.png" alt="Store Homepage" style="max-height: 70vh; width: auto; border-radius: 5px; box-shadow: 0 0 30px rgba(54, 226, 255, 0.4);" class="fragment fade-in-then-out" data-fragment-index="0">
+                    <img src="images/shop-2.png" alt="Poster Builder Page" style="max-height: 70vh; width: auto; border-radius: 5px; box-shadow: 0 0 30px rgba(54, 226, 255, 0.4);" class="fragment fade-in-then-out" data-fragment-index="1">
                 </div>
-                <aside class="notes">
-                    Luis
-                    <ul>
-                        <li>Here's what we created - a fully functional e-commerce site. Not live yet [smile]</li>
-                        <li>An intuitive browsing experience for our programming-themed posters.</li>
-                        <li>What's remarkable isn't just the result, but how quickly we achieved it.</li>
-                    </ul>
-
-                    <p><em>Transition: But how exactly did vibe coding accelerate our development process? Let's look at our approach and challenges...</em></p>
-                </aside>
+                
+                <div class="r-stack" style="position: absolute; bottom: 30px; width: 100%; left: 0; text-align: center;">
+                    <p class="fragment fade-in-then-out" data-fragment-index="0"><small><span class="accent">Homepage</span> Design</small></p>
+                    <p class="fragment fade-in-then-out" data-fragment-index="1"><small><span class="accent">Poster</span> Builder Page</small></p>
+                </div>
             </div>
+            <aside class="notes">
+                Luis
+                <ul>
+                    <li>Here's what we created - a fully functional e-commerce site. Not live yet [smile]</li>
+                    <li>An intuitive browsing experience for our programming-themed posters.</li>
+                    <li>What's remarkable isn't just the result, but how quickly we achieved it.</li>
+                </ul>
+
+                <p><em>Transition: But how exactly did vibe coding accelerate our development process? Let's look at our approach and challenges...</em></p>
+            </aside>
         </section>
 
         <!-- The Problem Slide 6 -->
@@ -738,12 +773,11 @@
         <section data-auto-animate>
             <div class="cyberpunk-grid"></div>
             <div class="content-wrapper" style="padding: 0; margin: 0;">
-                <h2 style="position: absolute; top: 20px; left: 20px; z-index: 10; font-size: 1.5em; text-shadow: 0 0 10px var(--darker-bg), 0 0 15px var(--darker-bg);">
+                <h2 style="position: absolute; top: 20px; left: 20px; z-index: 10; font-size: 1.2em; text-shadow: 0 0 10px var(--darker-bg), 0 0 15px var(--darker-bg);">
                     Design Evolution</h2>
-                <div class="image-container"
-                     style="background: transparent; box-shadow: none; width: 100%; height: 100%; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center;">
-                    <img src="images/shop-3.png" alt="Store Design" class="r-stretch"
-                         style="max-width: 90%; height: auto; margin: 0;">
+                <div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
+                    <img src="images/shop-3.png" alt="Store Design" 
+                         style="max-height: 70vh; width: auto; border-radius: 5px; box-shadow: 0 0 30px rgba(54, 226, 255, 0.4);">
                 </div>
             </div>
             <aside class="notes">
@@ -1030,40 +1064,11 @@
             </aside>
         </section>
 
-        <!-- AI Prompt Example: Visual Design	 Slide 21 -->
-        <section>
-            <div class="cyberpunk-grid"></div>
-            <div class="content-wrapper">
-                <h2>Visual Iteration Prompt</h2>
-                <div class="prompt-box">
-                    <div class="prompt-title">PRESENTATION DESIGN PROMPT</div>
-                    Let's iterate over some visual topics:
-                    <br>
-                    - The slide content is too small for the slides.
-
-                    <br>
-                    - The font size needs to be increased and the slide content needs to be more evenly spaced out in
-                    the slide.
-
-                    <br>
-                    - The titles of the slides should be all in the same color.
-
-                    <br>
-                    - Make the slides more visually appealing and engaging.
-                </div>
-                <p class="fragment">The CSS generated from this prompt forms the <span class="accent">foundation</span>
-                    of what you're seeing now</p>
-            </div>
-            <aside class="notes">
-                David
-            </aside>
-        </section>
-
-        <!-- Vibe Coding Strengths Slide 22 -->
+        <!-- Vibe Coding Strengths Slide 21 -->
         <section data-auto-animate>
             <div class="cyberpunk-grid"></div>
             <div class="content-wrapper">
-                <h2>Where Vibe Coding Shines</h2>
+                <h2>Where Vibe Coding <span class="bright-neon">Shines</span></h2>
                 <ul>
                     <li class="fragment"><span class="accent">Rapid</span> prototyping and MVPs</li>
                     <li class="fragment"><span class="accent">Solo</span> developers and small teams</li>
@@ -1077,7 +1082,7 @@
             </aside>
         </section>
 
-        <!-- Vibe Coding Limitations Slide 23 -->
+        <!-- Vibe Coding Limitations Slide 22 -->
         <section data-auto-animate>
             <div class="cyberpunk-grid"></div>
             <div class="content-wrapper">
@@ -1104,7 +1109,7 @@
             </aside>
         </section>
 
-        <!-- The Future - Synthesis Slide 24 -->
+        <!-- The Future - Synthesis Slide 23 -->
         <section>
             <div class="cyberpunk-grid"></div>
             <div class="content-wrapper">
@@ -1145,7 +1150,7 @@
             </aside>
         </section>
 
-        <!-- Vibe Coding Success - Full Image Slide 25 -->
+        <!-- Vibe Coding Success - Full Image Slide 24 -->
         <section data-auto-animate>
             <div class="cyberpunk-grid"></div>
             <div class="content-wrapper" style="padding: 0; margin: 0;">
@@ -1171,7 +1176,7 @@
             </aside>
         </section>
 
-        <!-- Key Takeaways Slide 26 -->
+        <!-- Key Takeaways Slide 25 -->
         <section>
             <div class="cyberpunk-grid"></div>
             <div class="content-wrapper">
@@ -1184,6 +1189,7 @@
                             <li><span class="accent">Internal</span> tools and utilities</li>
                         </ul>
                     </li>
+										<br>
                     <li class="fragment">Engineering knowledge becomes <span class="accent">crucial</span> when:
                         <ul>
                             <li>Moving from <span class="accent">local</span> to production</li>
@@ -1198,13 +1204,13 @@
             </aside>
         </section>
 
-        <!-- Conclusion Slide 27 -->
+        <!-- Conclusion Slide 26 -->
         <section class="gradient-bg">
             <div class="cyberpunk-grid"></div>
             <div class="content-wrapper">
                 <h2>Vibe Coding:</h2>
                 <h3 class="fragment">Not a Fad, But Not the <span class="accent">Whole</span> Future</h3>
-                <p class="fragment">It's a <span class="accent">powerful</span> new approach in the developer toolkit
+                <p class="fragment">It's a <span class="accent">powerful</span> new tool in the engineering toolkit
                 </p>
             </div>
             <aside class="notes">
@@ -1212,7 +1218,7 @@
             </aside>
         </section>
 
-        <!-- Q&A Slide 28 -->
+        <!-- Q&A Slide 27 -->
         <section>
             <div class="cyberpunk-grid"></div>
             <div class="content-wrapper">
